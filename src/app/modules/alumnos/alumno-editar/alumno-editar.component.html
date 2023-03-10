@@ -1,0 +1,226 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Editando Alumnos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+
+    <form  (ngSubmit)="onUpdateAlumno()">
+
+      <div *ngIf="alumnoUpdate">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Nombres</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="text"
+                  name="nombres"
+                  [(ngModel)]="alumnoUpdate.nombres"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Apellidos</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="text"
+                  name="apellidos"
+                  [(ngModel)]="alumnoUpdate.apellidos"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-item fill="solid">
+                <ion-label position="floating">Correo</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="email"
+                  name="correo"
+                  [(ngModel)]="alumnoUpdate.correo"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12" size-md="6">
+              <ion-list>
+                <ion-item fill="solid">
+                  <ion-select placeholder="Tipo de Documento"
+                  name="tipoDocumento"
+                  [(ngModel)]="alumnoUpdate.tipoDocumento"
+                  >
+                    <ion-select-option value="CC"
+                      >CC : CEDULA DE CUIDADANIA</ion-select-option
+                    >
+                    <ion-select-option value="TI"
+                      >TI : TARJETA DE IDENTIDAD
+                    </ion-select-option>
+                    <ion-select-option value="RC"
+                      >RC : REGISTRO CIVIL</ion-select-option
+                    >
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+
+
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Numero de Documento</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="number"
+                  name="numeroDocumento"
+                  [(ngModel)]="alumnoUpdate.numeroDocumento"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12" size-md="6">
+              <ion-list>
+                <ion-item fill="solid">
+                  <ion-select placeholder="Genero"
+                  name="genero"
+                  [(ngModel)]="alumnoUpdate.genero">
+                    <ion-select-option value="M">MASCULINO</ion-select-option>
+                    <ion-select-option value="F">FEMENINO</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+
+
+            <ion-col size="12" size-md="6">
+              <ion-list>
+                <ion-label >Fecha Nacimiento</ion-label>
+                <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+                <ion-modal [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime
+                    presentation="date"
+                    name="fechaNacimiento"
+                    [(ngModel)]="alumnoUpdate.fechaNacimiento"
+                    id="datetime"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+              </ion-list>
+            </ion-col>
+
+
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Departamento de Nacimiento</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="text"
+                  name="departamentoNacimiento"
+                  [(ngModel)]="alumnoUpdate.departamentoNacimiento"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Ciudad de Nacimiento</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="text"
+                  name="ciudadNacimiento"
+                  [(ngModel)]="alumnoUpdate.ciudadNacimiento"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Dirrecion de Residencia</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="text"
+                  name="direccionResidencia"
+                  [(ngModel)]="alumnoUpdate.direccionResidencia"
+
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Barrio de Residencia</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="text"
+                  name="barrioResidencia"
+                  [(ngModel)]="alumnoUpdate.barrioResidencia"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+
+            <ion-col size="12" size-md="6">
+              <ion-item fill="solid">
+                <ion-label position="floating">Telefono</ion-label>
+                <ion-input
+                  placeholder=""
+                  type="number"
+                  name="telefono"
+                  [(ngModel)]="alumnoUpdate.telefono"
+                ></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12" size-md="6" >
+              <ion-list>
+                <ion-button color="medium" type="button"
+                 >
+                 <ion-icon name="people-outline" class="me-2"></ion-icon>
+                  Acudientes</ion-button>
+              </ion-list>
+            </ion-col>
+
+
+
+            <ion-col size="12" >
+              <ion-list>
+                <ion-button type="submit"
+                 >
+                  <ion-icon name="save-outline" class="me-2"></ion-icon>
+                  Actualizar Alumno</ion-button>
+              </ion-list>
+            </ion-col>
+
+
+
+
+          </ion-row>
+        </ion-grid>
+      </div>
+
+
+    </form>
+
+
+  </div>
+</ion-content>
+
+

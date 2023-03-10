@@ -59,5 +59,14 @@ export class AlumnoService {
 
   }
 
+  getAlumnoById(id:number){
+
+    return this.http.get<AlumnoModel>(`${this.URL_BASE}/alumnos/${id}`);
+  }
+
+  putAlumno(alumno:AlumnoModel,id:number){
+    return this.http.put<AlumnoModel>(`${this.URL_BASE}/alumnos/${id}`,alumno)
+  }
+
 
 }

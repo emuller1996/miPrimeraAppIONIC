@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AlumnoModel } from 'src/app/models/alumno.model';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-alumnos-lista',
   templateUrl: './alumnos-lista.component.html',
@@ -10,34 +11,41 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 })
 export class AlumnosListaComponent  implements OnInit {
   public folder!: string;
-  listaAlumnos! : Observable <AlumnoModel[]>;
+  listaAlumnos! : AlumnoModel[];
   listaAlumnoAsync! : AlumnoModel [];
 
 
   constructor(
     private alumnoService: AlumnoService,
+
   ) { }
 
   ngOnInit() {
     /* this.alumnoService.getAlumnos().then(data=> this.listaAlumnos = data );
     console.log(this.listaAlumnos) */
-    this.alumnoService.getAlumnosAsync().then(data => {
-      this.listaAlumnoAsync =data;
-      console.log(this.listaAlumnoAsync);
-    })
-
+    this.getAllAlumnos();
 
   }
 
 
-  onIonInfinite(ev:any) {
-    this.alumnoService.getAlumnosAsync().then(data => {
-      this.listaAlumnoAsync =data;
-      console.log(this.listaAlumnoAsync);
-    })
-    setTimeout(() => {
-      (ev as InfiniteScrollCustomEvent).target.complete();
-    }, 500);
+
+  async getAllAlumnos(){
+
+
+      this.alumnoService.getAlumnos().subscribe({
+        next : (data ) => {
+          this.listaAlumnos = data
+        },
+        error : (error) => { console.error(error)}
+      })
+
+
+     const result = await this.alumnoService.getAlumnosAsync();
+     console.log(result);
+     this.listaAlumnoAsync =result
   }
+
+
+
 
 }
