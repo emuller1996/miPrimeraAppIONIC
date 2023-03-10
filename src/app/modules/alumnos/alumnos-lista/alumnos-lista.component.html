@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="row row-cols-3 justify-content-start align-items-center g-3">
+
+
+    <div *ngFor="let a of listaAlumnos |async" class="col col-12 col-xl-4 col-md-6">
+      <ion-card  >
+        <ion-card-header>
+          <ion-card-title>{{a.nombres}} {{a.apellidos}}</ion-card-title>
+          <ion-card-subtitle>{{a.tipoDocumento}}  {{a.numeroDocumento}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Here's a small text description for the card content. Nothing more, nothing less.
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- <div *ngFor="let a of listaAlumnos |async" class="col-12 col-xl-4 col-md-6">
+      <div class="card-alumno">
+        <div>
+          <h4 class="card-title p-0 m-0 fw-semibold">{{a.nombres}} {{a.apellidos}} </h4>
+          <div class="row justify-content-start align-items-center g-2">
+            <div class="col-2">{{a.tipoDocumento}}</div>
+            <div class="col-7">{{a.numeroDocumento}}</div>
+            <div class="col-3">Genero : {{a.genero}}</div>
+
+            <div class="col-8">Direccion : {{a.direccionResidencia}} {{ a.barrioResidencia }}</div>
+            <div class="col-4 text-center">
+
+              <a mat-raised-button color="accent" name="" id="" role="button"><i class="fa-regular fa-eye"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+        <div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+</div>

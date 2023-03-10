@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  url: 'https://micolegioapp-production.up.railway.app'
 };
