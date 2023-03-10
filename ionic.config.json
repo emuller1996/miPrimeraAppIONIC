@@ -1,0 +1,7 @@
+{
+  "name": "miPrimeraAppIONIC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
