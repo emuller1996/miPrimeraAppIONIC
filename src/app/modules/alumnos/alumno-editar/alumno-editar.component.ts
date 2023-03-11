@@ -49,7 +49,7 @@ export class AlumnoEditarComponent  implements OnInit {
             position: 'top'
           });
           await toast.present();
-          this.router.navigate(['/Alumnos/Lista'])
+          /* this.router.navigate(['/Alumnos/Lista']) */
       },
       error : ( err ) => { console.error(err)}
     })

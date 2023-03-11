@@ -3,7 +3,23 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Editando Alumnos</ion-title>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col> 
+          <ion-title>Editando Alumnos</ion-title>
+
+        </ion-col>
+        <ion-col class="text-end  ">
+          <ion-button size="medium"
+          [routerLink]="['/Alumnos/Lista']">
+            <ion-icon name="arrow-back-circle-outline"></ion-icon>
+          </ion-button>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -17,8 +33,13 @@
 
   <div id="container">
 
+    <div *ngIf="!alumnoUpdate" class="mx-auto text-center py-4">
+      <ion-spinner name="dots"></ion-spinner>
+  </div>  
+
     <form  (ngSubmit)="onUpdateAlumno()">
 
+      
       <div *ngIf="alumnoUpdate">
         <ion-grid>
           <ion-row>
@@ -192,6 +213,7 @@
             <ion-col size="12" size-md="6" >
               <ion-list>
                 <ion-button color="medium" type="button"
+                [routerLink]="['/Acudiente',alumnoUpdate.id,'Alumno']"
                  >
                  <ion-icon name="people-outline" class="me-2"></ion-icon>
                   Acudientes</ion-button>
