@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AlumnoModel } from 'src/app/models/alumno.model';
 import { AlumnoService } from 'src/app/services/alumno.service';
@@ -9,21 +9,32 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './alumnos-lista.component.html',
   styleUrls: ['./alumnos-lista.component.scss'],
 })
-export class AlumnosListaComponent  implements OnInit {
+export class AlumnosListaComponent  implements OnInit,OnDestroy {
   public folder!: string;
   listaAlumnos! : AlumnoModel[];
   listaAlumnoAsync! : AlumnoModel [];
 
 
+  ionViewWillEnter(){
+    console.log("ionViewWillEnter")
+    console.log("ngOnInit")
+
+    /* this.alumnoService.getAlumnos().then(data=> this.listaAlumnos = data );
+    console.log(this.listaAlumnos) */
+    this.getAllAlumnos();
+  }
+
   constructor(
     private alumnoService: AlumnoService,
 
   ) { }
+  ngOnDestroy(): void {
+    console.log("ngOnDestroy")
+    this.listaAlumnos=[];
+  }
 
   ngOnInit() {
-    /* this.alumnoService.getAlumnos().then(data=> this.listaAlumnos = data );
-    console.log(this.listaAlumnos) */
-    this.getAllAlumnos();
+    
 
   }
 

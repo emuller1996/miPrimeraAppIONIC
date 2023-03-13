@@ -21,4 +21,9 @@ export class AcudienteService {
     return this.http.get<AcudienteModel[]>(`${this.URL_BASE}/alumnos/${id}/acudientes`);
   }
 
+
+  postAcudienteByAlumnoId(acudiente:any,alumnoID:number){
+
+    return this.http.post<AcudienteModel>(`${this.URL_BASE}/alumnos/${alumnoID}/acudientes`,acudiente);
+  }
 }

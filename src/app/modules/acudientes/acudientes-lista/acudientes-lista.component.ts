@@ -18,8 +18,8 @@ export class AcudientesListaComponent  implements OnInit {
     private route:ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    this.idAlumno = this.route.snapshot.params['idAlumno'];
+
+  ionViewWillEnter(){
 
     this.acudienteService.getAcudienteByAlumnoId(this.idAlumno).subscribe({
       next : (data)=> { 
@@ -28,6 +28,12 @@ export class AcudientesListaComponent  implements OnInit {
       },
       error : (data)=> { console.log(data)}
     })
+
+  }
+  ngOnInit() {
+    this.idAlumno = this.route.snapshot.params['idAlumno'];
+
+    
   }
 
 }

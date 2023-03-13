@@ -6,20 +6,19 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col> 
+        <ion-col>
           <ion-title>Lista de Acudientes</ion-title>
 
         </ion-col>
         <ion-col class="text-end  ">
-          <ion-button size="medium"
-          [routerLink]="['/Alumnos/Editar',idAlumno]">
+          <ion-button size="medium" [routerLink]="['/Alumnos/Editar',idAlumno]">
             <ion-icon name="arrow-back-circle-outline"></ion-icon>
           </ion-button>
 
         </ion-col>
       </ion-row>
     </ion-grid>
-    
+
   </ion-toolbar>
 </ion-header>
 
@@ -32,17 +31,25 @@
 
   <div id="container">
 
+    <div class="container mt-2">
+      <ion-button size="medium" [routerLink]="['Crear']">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        Registrar Acudiente
+      </ion-button>
+    </div>
+
+
     <div *ngIf="!listAcudientes" class="mx-auto text-center py-4">
       <ion-spinner name="dots"></ion-spinner>
-  </div>
+    </div>
 
-  <ion-text  *ngIf=" listAcudientes && listAcudientes.length === 0" color="tertiary">
-    <h3>No tienes acudiente registrado</h3>
-  </ion-text>
+    <ion-text *ngIf=" listAcudientes && listAcudientes.length === 0" color="tertiary">
+      <h3>No tienes acudiente registrado</h3>
+    </ion-text>
     <ion-grid>
       <ion-row>
         <ion-col size="6" *ngFor="let a of listAcudientes">
-          
+
           <ion-card>
             <ion-card-header>
               <ion-card-title>{{a.nombres}}</ion-card-title>
@@ -53,7 +60,7 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-        
+
 
       </ion-row>
     </ion-grid>
@@ -61,4 +68,3 @@
 
   </div>
 </ion-content>
-
